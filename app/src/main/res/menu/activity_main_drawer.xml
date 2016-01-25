@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/cube_entertainment"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Cube Entertainment" />
+        <item
+            android:id="@+id/fnc_entertainment"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="FNC Entertainment" />
+        <item
+            android:id="@+id/jyp_entertainment"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="JYP Entertainment" />
+        <item
+            android:id="@+id/loen_entertainment"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Loen Entertainment" />
+        <item
+            android:id="@+id/pledis_entertainment"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Pledis Entertainment" />
+        <item
+            android:id="@+id/sm_entertainment"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="SM Entertainment" />
+        <item
+            android:id="@+id/ts_entertainment"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="TS Entertainment" />
+        <item
+            android:id="@+id/woollim_entertainment"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Woollim Entertainment" />
+        <item
+            android:id="@+id/yg_entertainment"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="YG Entertainment" />
+    </group>
+
+</menu>

@@ -1,38 +1,47 @@
 package c4q.nyc.hyunj0.kpopidolwiki;
 
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private RecyclerView rv;
-
-    private static final KPopIdol[] AFTERSCHOOL = {
-            new KPopIdol(R.drawable.jungah, "Jungah", "After School", KPopEntertainmentCompany.PLEDIS_ENTERTAINMENT),
-            new KPopIdol(R.drawable.uee, "UEE", "After School", KPopEntertainmentCompany.PLEDIS_ENTERTAINMENT),
-            new KPopIdol(R.drawable.raina, "Raina", "After School", KPopEntertainmentCompany.PLEDIS_ENTERTAINMENT),
-            new KPopIdol(R.drawable.nana, "Nana", "After School", KPopEntertainmentCompany.PLEDIS_ENTERTAINMENT),
-            new KPopIdol(R.drawable.lizzy, "Lizzy", "After School", KPopEntertainmentCompany.PLEDIS_ENTERTAINMENT),
-            new KPopIdol(R.drawable.e_young, "E-Young", "After School", KPopEntertainmentCompany.PLEDIS_ENTERTAINMENT),
-            new KPopIdol(R.drawable.kaeun, "Kaeun", "After School", KPopEntertainmentCompany.PLEDIS_ENTERTAINMENT),
-    };
+    private Toolbar toolbar;
+    private DrawerLayout drawer;
+    private ActionBarDrawerToggle toggle;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        initializeViews();
         setSupportActionBar(toolbar);
+        toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
+    }
 
-        rv = (RecyclerView) findViewById(R.id.rv);
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setHasFixedSize(true);
-        rv.setAdapter(new KPopIdolAdapter(AFTERSCHOOL));
+    public void initializeViews() {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override
@@ -55,5 +64,35 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.cube_entertainment) {
+
+        } else if (id == R.id.fnc_entertainment) {
+
+        } else if (id == R.id.jyp_entertainment) {
+
+        } else if (id == R.id.loen_entertainment) {
+
+        } else if (id == R.id.pledis_entertainment) {
+
+        } else if (id == R.id.sm_entertainment) {
+
+        } else if (id == R.id.ts_entertainment) {
+
+        } else if (id == R.id.woollim_entertainment) {
+
+        } else if (id == R.id.yg_entertainment) {
+
+        } else {
+
+        }
+
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }
