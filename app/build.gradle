@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "c4q.nyc.hyunj0.k_popidolwiki"
+        applicationId "c4q.nyc.hyunj0.kpopidolwiki"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
