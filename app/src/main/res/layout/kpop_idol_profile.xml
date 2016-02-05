@@ -38,15 +38,6 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp" />
 
-            <TextView
-                android:id="@+id/idol_entertainment_company"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/idol_group"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="50dp" />
-
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>

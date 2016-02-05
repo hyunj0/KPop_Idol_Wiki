@@ -3,6 +3,8 @@ package c4q.nyc.hyunj0.kpopidolwiki;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,25 +17,13 @@ import android.widget.ImageView;
 public class KPopEntertainmentFragment extends Fragment {
 
     private static final String ENTERTAINMENT_COMPANY = "entertainment_company";
-    private static final String FOUNDER = "founder";
 
     private String entertainmentCompany;
-    private String founder;
 
     private Toolbar toolbar;
     private CollapsingToolbarLayout collapsingToolbar;
     private ImageView backdrop;
     private RecyclerView rv;
-
-    private static final KPopIdol[] AFTERSCHOOL = {
-            new KPopIdol(R.drawable.jungah, "Jungah", "After School", KPopEntertainmentCompany.PLEDIS_ENTERTAINMENT),
-            new KPopIdol(R.drawable.uee, "UEE", "After School", KPopEntertainmentCompany.PLEDIS_ENTERTAINMENT),
-            new KPopIdol(R.drawable.raina, "Raina", "After School", KPopEntertainmentCompany.PLEDIS_ENTERTAINMENT),
-            new KPopIdol(R.drawable.nana, "Nana", "After School", KPopEntertainmentCompany.PLEDIS_ENTERTAINMENT),
-            new KPopIdol(R.drawable.lizzy, "Lizzy", "After School", KPopEntertainmentCompany.PLEDIS_ENTERTAINMENT),
-            new KPopIdol(R.drawable.e_young, "E-Young", "After School", KPopEntertainmentCompany.PLEDIS_ENTERTAINMENT),
-            new KPopIdol(R.drawable.kaeun, "Kaeun", "After School", KPopEntertainmentCompany.PLEDIS_ENTERTAINMENT),
-    };
 
     public KPopEntertainmentFragment() {
 
@@ -43,7 +33,6 @@ public class KPopEntertainmentFragment extends Fragment {
         KPopEntertainmentFragment fragment = new KPopEntertainmentFragment();
         Bundle args = new Bundle();
         args.putString(ENTERTAINMENT_COMPANY, kPopEntertainmentCompany.getName());
-        args.putString(FOUNDER, kPopEntertainmentCompany.getFounder());
         fragment.setArguments(args);
         return fragment;
     }
@@ -53,7 +42,6 @@ public class KPopEntertainmentFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             entertainmentCompany = getArguments().getString(ENTERTAINMENT_COMPANY);
-            founder = getArguments().getString(FOUNDER);
         }
     }
 
@@ -71,9 +59,12 @@ public class KPopEntertainmentFragment extends Fragment {
         collapsingToolbar.setTitle(entertainmentCompany);
         backdrop.setImageResource(getCompanyLogo(entertainmentCompany));
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        DrawerLayout drawer = (DrawerLayout) getActivity().findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(getActivity(), drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
 
-        KPopIdolAdapter adapter = new KPopIdolAdapter(AFTERSCHOOL);
+        KPopIdolAdapter adapter = new KPopIdolAdapter(getArtists(entertainmentCompany));
         rv.setLayoutManager(new LinearLayoutManager(container.getContext()));
         rv.setHasFixedSize(true);
         rv.setAdapter(adapter);
@@ -113,5 +104,30 @@ public class KPopEntertainmentFragment extends Fragment {
                 break;
         }
         return logo;
+    }
+
+    public KPopIdol[] getArtists(String entertainmentCompany) {
+        switch (entertainmentCompany) {
+            case KPopEntertainmentCompany.CUBE_ENTERTAINMENT:
+                return KPopEntertainmentCompany.CUBE_ARTISTS;
+            case KPopEntertainmentCompany.FNC_ENTERTAINMENT:
+                return KPopEntertainmentCompany.FNC_ARTISTS;
+            case KPopEntertainmentCompany.JYP_ENTERTAINMENT:
+                return KPopEntertainmentCompany.JYP_ARTISTS;
+            case KPopEntertainmentCompany.LOEN_ENTERTAINMENT:
+                return KPopEntertainmentCompany.LOEN_ARTISTS;
+            case KPopEntertainmentCompany.PLEDIS_ENTERTAINMENT:
+                return KPopEntertainmentCompany.PLEDIS_ARTISTS;
+            case KPopEntertainmentCompany.SM_ENTERTAINMENT:
+                return KPopEntertainmentCompany.SM_ARTISTS;
+            case KPopEntertainmentCompany.TS_ENTERTAINMENT:
+                return KPopEntertainmentCompany.TS_ARTISTS;
+            case KPopEntertainmentCompany.WOOLLIM_ENTERTAINMENT:
+                return KPopEntertainmentCompany.WOOLLIM_ARTISTS;
+            case KPopEntertainmentCompany.YG_ENTERTAINMENT:
+                return KPopEntertainmentCompany.YG_ARTISTS;
+            default:
+                return KPopEntertainmentCompany.NO_ARTISTS;
+        }
     }
 }

@@ -7,6 +7,12 @@ public class KPopIdol {
     private String idolGroup;
     private String entertainmentCompany;
 
+    public KPopIdol(int idolPic, String idolName, String idolGroup) {
+        this.idolPic = idolPic;
+        this.idolName = idolName;
+        this.idolGroup = idolGroup;
+    }
+
     public KPopIdol(int idolPic, String idolName, String idolGroup, String entertainmentCompany) {
         this.idolPic = idolPic;
         this.idolName = idolName;

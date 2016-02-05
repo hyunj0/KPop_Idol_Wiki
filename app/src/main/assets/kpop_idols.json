@@ -1,0 +1,48 @@
+{
+  "entertainment_companies": [
+    {
+      "name": "Cube Entertainment",
+      "founder": "Hong Seung Song",
+      "artists": [
+        {
+          "name": "4MINUTE",
+          "members": [
+            { "name": "Nam Ji Hyun" },
+            { "name": "Heo Ga Yoon" },
+            { "name": "Jeon Ji Yoon" },
+            { "name": "Kim Hyun Ah" },
+            { "name": "Kwon So Hyun" }
+          ]
+        },
+        {
+          "name": "BEAST",
+          "members": [
+            { "name": "Yoon Doo Joon" },
+            { "name": "Jang Hyun Seung" },
+            { "name": "Yong Jun Hyung" },
+            { "name": "Yang Yo Seob" },
+            { "name": "Lee Gi Kwang" },
+            { "name": "Son Dong Woon" }
+          ]
+        },
+        {
+          "name": "G.NA",
+          "members": [
+            { "name": "G.NA" }
+          ]
+        },
+        {
+          "name": "BTOB",
+          "members": [
+            { "name": "Seo Eun Kwang" },
+            { "name": "Lee Min Hyuk" },
+            { "name": "Lee Chang Sub" },
+            { "name": "Im Hyun Sik" },
+            { "name": "Shin Dong Geun"}
+
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,5 @@
 package c4q.nyc.hyunj0.kpopidolwiki;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +29,6 @@ public class KPopIdolAdapter extends RecyclerView.Adapter<KPopIdolAdapter.ViewHo
         holder.idol_pic.setImageResource(kPopIdol.getIdolPic());
         holder.idol_name.setText(kPopIdol.getIdolName());
         holder.idol_group.setText(kPopIdol.getIdolGroup());
-        holder.idol_entertainment_company.setText(kPopIdol.getEntertainmentCompany());
     }
 
     @Override
@@ -43,14 +41,12 @@ public class KPopIdolAdapter extends RecyclerView.Adapter<KPopIdolAdapter.ViewHo
         ImageView idol_pic;
         TextView idol_name;
         TextView idol_group;
-        TextView idol_entertainment_company;
 
         public ViewHolder(View itemView) {
             super(itemView);
             idol_pic = (ImageView) itemView.findViewById(R.id.idol_pic);
             idol_name = (TextView) itemView.findViewById(R.id.idol_name);
             idol_group = (TextView) itemView.findViewById(R.id.idol_group);
-            idol_entertainment_company = (TextView) itemView.findViewById(R.id.idol_entertainment_company);
         }
     }
 }
